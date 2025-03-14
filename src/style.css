@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.autocomplete-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-container {
+  @apply bg-white border border-gray-200 shadow-lg max-h-[200px] overflow-y-auto z-50;
+}
+
+.autocomplete-below {
+  @apply rounded-b-lg shadow-md;
+}
+
+.autocomplete-above {
+  @apply rounded-t-lg shadow-md;
+}
+
+.autocomplete-suggestion {
+  @apply px-4 py-2 cursor-pointer hover:bg-gray-100;
+}
+
+.autocomplete-suggestion-active {
+  @apply bg-gray-200;
+}
+
+.autocomplete-dropdown-icon {
+  @apply text-gray-500 flex items-center justify-center transition-transform duration-200;
+}
+
+.autocomplete-icon-active {
+  @apply -rotate-180 text-gray-700;
+}
+
+.autocomplete-wrapper input {
+  @apply pr-8 w-full box-border;
+}
