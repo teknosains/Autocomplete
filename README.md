@@ -142,3 +142,6 @@ export interface AutocompleteOptions<T extends AutocompleteSuggestion> {
   renderSuggestion?: (suggestion: T, element: HTMLElement) => void;
 }
 ```
+
+### Disclaimer
+Code 100% written by AI Claude.ai by @anthropics
