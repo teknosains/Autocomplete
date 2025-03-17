@@ -144,4 +144,4 @@ export interface AutocompleteOptions<T extends AutocompleteSuggestion> {
 ```
 
 ### Disclaimer
-Code 100% written by AI Claude.ai by @anthropics
+Code 100% written by AI Claude.ai by @anthropics. Some areas might need more improvement and testing
