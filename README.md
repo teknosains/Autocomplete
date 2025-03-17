@@ -104,8 +104,10 @@ export interface AutocompleteOptions<T extends AutocompleteSuggestion> {
   inputElement: HTMLInputElement;
   /** Function that returns suggestions based on the current input */
   getSuggestions: (input: string) => Promise<T[]> | T[];
-  /** Property name to display in the input (e.g., 'name') */
-  displayProperty: keyof T;
+  /** Format function to determine what's displayed in the input after selection */
+  formatSelectedItem: (item: T) => string;
+  /** Format function to determine HTML content for suggestions (optional) */
+  formatSuggestionHTML?: (item: T) => string;
   /** Maximum number of suggestions to display */
   maxSuggestions?: number;
   /** Minimum characters required to trigger suggestions */
@@ -126,6 +128,10 @@ export interface AutocompleteOptions<T extends AutocompleteSuggestion> {
   dropdownIconClass?: string;
   /** Custom HTML for the dropdown icon (default is a down arrow) */
   dropdownIconHtml?: string;
+  /** Whether to allow HTML in suggestions */
+  allowHTML?: boolean;
+  /** Sanitize HTML content (recommended when allowing HTML) */
+  sanitizeHTML?: (html: string) => string;
   /** Custom renderer for suggestion items (optional) */
   renderSuggestion?: (suggestion: T, element: HTMLElement) => void;
 }
