@@ -34,7 +34,13 @@ const selected = document.querySelector("#selected");
 
 const userAutocomplete = new Autocomplete({
   inputElement: productSearchInput,
-  displayProperty: 'name',
+  formatSelectedItem: (country) => {
+    return country.name;
+  },
+  allowHTML: true,
+  formatSuggestionHTML: (country) => {
+    return `${country.name} <i>ID: ${country.id}</i>`;
+  },
   getSuggestions: async (input) => {
     if (!input) return [];
     
@@ -52,6 +58,40 @@ const userAutocomplete = new Autocomplete({
   }
 });
 ```
+
+### Ajax Example
+```javascript
+const userAutocomplete = new Autocomplete({
+  inputElement: productSearchInput,
+  formatSelectedItem: (country) => {
+    return country.name;
+  },
+  // want HTML formatted dropdown? enable this
+  allowHTML: true,
+  formatSuggestionHTML: (country) => {
+    return `${country.name} <i>ID: ${country.id}</i>`;
+  },
+  getSuggestions: async (input) => {
+    if (!input) return [];
+
+    const response = await fetch('/api/country);
+    const data = await response.json();
+
+    return data.filter((item: any) => 
+      item.name.toLowerCase().includes(input.toLowerCase())
+    );
+   
+  },
+  minChars: 1,
+  debounceTime: 300,
+  maxSuggestions: 10,
+  onSelect: (value) => {
+    console.log(value);
+    selected.innerHTML = JSON.stringify(value);
+  }
+});
+```
+
 
 ### available configs
 ```javascript
