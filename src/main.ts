@@ -1,28 +1,34 @@
-import './style.css'
-import { Autocomplete } from './autocomplete.ts'
+import './style.css';
+import { Autocomplete } from './autocomplete.ts';
 
 const countries = [
-  { name: "United States", id: 1 },
-  { name: "United Kingdom", id: 2 },
-  { name: "Canada", id: 3 },
-  { name: "Australia", id: 4 },
-  { name: "Germany", id: 5 }
+  { name: 'United States', id: 1 },
+  { name: 'United Kingdom', id: 2 },
+  { name: 'Canada', id: 3 },
+  { name: 'Australia', id: 4 },
+  { name: 'Germany', id: 5 },
 ];
 
 const productSearchInput = document.querySelector(
-  "#input-country"
+  '#input-country'
 ) as HTMLInputElement;
 
-const selected = document.querySelector("#selected");
+const selected = document.querySelector('#selected');
 
-const userAutocomplete = new Autocomplete({
+new Autocomplete({
   inputElement: productSearchInput,
-  displayProperty: 'name',
+  formatSelectedItem: (country) => {
+    return country.name;
+  },
+  allowHTML: true,
+  formatSuggestionHTML: (country) => {
+    return `${country.name} <i>ID: ${country.id}</i>`;
+  },
   getSuggestions: async (input) => {
     if (!input) return [];
-    
+
     // this could be from you database
-    return countries.filter(country => 
+    return countries.filter((country) =>
       country.name.toLowerCase().includes(input.toLowerCase())
     );
   },
@@ -31,6 +37,6 @@ const userAutocomplete = new Autocomplete({
   maxSuggestions: 10,
   onSelect: (value) => {
     console.log(value);
-    selected.innerHTML = JSON.stringify(value);
-  }
+    if (selected) selected.innerHTML = JSON.stringify(value);
+  },
 });
