@@ -77,7 +77,7 @@ const userAutocomplete = new Autocomplete({
   getSuggestions: async (input) => {
     if (!input) return [];
 
-    const response = await fetch('/api/country);
+    const response = await fetch(`/api/country?search=${input}`);
     const data = await response.json();
 
     return data.filter((item: any) => 
