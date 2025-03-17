@@ -1,6 +1,6 @@
 # Autocomplete (TypeScript)
 
-A super simple implementation of Autocomplete search using typescript
+A simple implementation of Autocomplete search using typescript
 
 ### Demo
 [JS Autocomplete](https://stackblitz.com/edit/vitejs-vite-m4vk7eud)
