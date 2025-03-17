@@ -29,14 +29,14 @@ const countries = [
   { name: "Germany", id: 5 }
 ];
 
-const productSearchInput = document.querySelector(
+const countrySearchInput = document.querySelector(
   "#input-country"
 ) as HTMLInputElement;
 
 const selected = document.querySelector("#selected");
 
 const userAutocomplete = new Autocomplete({
-  inputElement: productSearchInput,
+  inputElement: countrySearchInput,
   formatSelectedItem: (country) => {
     return country.name;
   },
@@ -65,7 +65,7 @@ const userAutocomplete = new Autocomplete({
 ### Ajax Example
 ```javascript
 const userAutocomplete = new Autocomplete({
-  inputElement: productSearchInput,
+  inputElement: countrySearchInput,
   formatSelectedItem: (country) => {
     return country.name;
   },
