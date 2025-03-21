@@ -143,5 +143,20 @@ export interface AutocompleteOptions<T extends AutocompleteSuggestion> {
 }
 ```
 
+### Usage in VanillaJS
+
+load the ```autocomplete.js``` file. (see ```src/autocomplete.js```)
+
+```javascript
+<script src="/path/to/autocomplete.js"></script>
+```
+
+```javascript
+const userAutocomplete = new Autocomplete({
+ // the rest is the same...
+});
+```
+
+
 ### Disclaimer
 Code 100% written by AI Claude.ai by @anthropics. Some areas might need more improvement and testing
