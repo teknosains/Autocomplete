@@ -3,7 +3,7 @@
  * A lightweight autocomplete implementation for vanilla JavaScript with TypeScript support
  * Now with object data support, multiple display properties, and HTML formatting
  */
-export class Autocomplete {
+class Autocomplete {
   constructor(options) {
     this.suggestions = [];
     this.activeIndex = -1;
